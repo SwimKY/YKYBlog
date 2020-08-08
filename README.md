@@ -13,8 +13,9 @@
 - 关于项目，对于学习Springboot是个挺不错的练手项目
 - 开发前的一些准备工作，以及思考项目整体结构与思路
 - 记录开发过程中遇到的一些难题以及bug
-- 总结目前博客网站的一些优缺点
-- 思考整个项目有哪些可以优化的地方，以及有哪些可增加的功能
+- 更新较慢的部分采用redis缓存增加访问速度
+- 部分接口遵循restFul规范
+
 
 ## 页面展示
 
@@ -89,17 +90,18 @@
 
 |  工具 | 名称 
 | ------------ | ------------
-| 开发工具  | IDEA 
-|  语言 | JDK11、HTML、css、js 
-| 数据库  | Mysql8.0
-| 项目框架  |spring boot
-| ORM  | Mybatis 
-| 安全框架  | SpringSecurity 
-| 缓存  | Redis 
-| 项目构建  | Maven 
-| 运行环境  | 阿里云Centos7 
+| 开发工具     | IDEA 
+|  语言        | JDK11、HTML、css、js 
+| 数据库      | Mysql8.0
+| 项目框架     |spring boot
+| ORM       | Mybatis 
+| 安全框架     | SpringSecurity 
+| 缓存     | Redis 
+| 项目构建    | Maven 
+| 运行环境    | 阿里云Centos7 
 
 #### 结构设计
+![](https://images.gitee.com/uploads/images/2020/0808/174754_3fd808f4_6578938.png "结构.png")
 
 对于熟悉Spring开发的朋友来说，相信对此结构也不会陌生。平时的开发过程中，结构设计是重要的环节，特别是协作开发的时候，明细的分包，模块化，可减少代码提交时的冲突。并且明确的结构有助于我们快速的寻找所对应的类。
 
@@ -121,44 +123,6 @@
 ## 打包、部署和运行
 - 本项目采用Springboot的maven插件进行打包，打包结果：****.jar
 - 部署方式：使用 nohup java -jar ******.jar >******.log 2>&1 &的方式，后台启动项目，并在该路径下生成运行日志
-
-## 数据设计
-
-###### 用户表：user
-| 名称  | 类型  |  长度 |  主键 | 非空  | 描述 
-| ------------ | ------------ | ------------ | ------------ | ------------ | ------------
-| id  | int  |  11 |  true |  true | 主键，自增 
-| phone  | varchar  | 255  | false  | true  | 手机号 
-| username  | varchar  | 255  |  false | true  |  用户名
-| password  |  varchar |  255 |  false | true  | 密码 
-| gender  | char  | 50  | false  |  true | 性别 
-| trueName  | varchar  | 255  |  false | false  | 姓名 
-| birthday  |  char | 100  |  false | false  | 生日 
-| email  | varchar  | 255  | false  | false  | 邮箱 
-| personalBrief  |  varchar | 255  | false  | false  |  个人简介
-| avatarImgUrl  |  varchar |  255 | false  |  true | 头像url
-| recentlyLanded  | varchar  |  255 |  false | false  |  最近登录时间
-
-###### 文章表：article
-| 名称  | 类型  |  长度 |  主键 | 非空  | 描述 
-| ------------ | ------------ | ------------ | ------------ | ------------ | ------------
-| id  | int  |  11 |  true |  true | 主键，自增 
-| articleId  | bigint  | 20  | false  | true  | 文章id 
-| author  | varchar  | 255  |  false | true  |  作者
-| originalAuthor  |  varchar |  255 |  false | true  | 文章原作者 
-| articleTitle  | varchar  | 255  | false  |  true | 文章标题 
-| articleContent  | longtext  | 0  |  false | true  | 文章内容 
-| articleTags  |  varchar | 255  |  false | true  | 文章标签 
-| articleType  | varchar  | 255  | false  | true  | 文章类型 
-| articleCategories  |  varchar | 255  | false  | true  |  文章分类
-| publishDate  |  varchar |  255 | false  |  true | 发布文章日期
-| updateDate  | varchar  |  255 |  false | true  |  更新文章日期
-| articleUrl  | varchar  |  255 |  false | true  |  文章url
-| articleTabloid  | 0  |  255 |  false | true  |  文章摘要
-| likes  | int  |  11 |  false | true  |  文章喜欢数
-| lastArticleId  | bigint  |  20 |  false | false  |  上一篇文章id
-| nextArticleId  | bigint  |  20 |  false | false  |  下一篇文章id
-
 
 ## 开发流程
 ###### 数据库CRUD
