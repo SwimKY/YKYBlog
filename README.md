@@ -1,5 +1,6 @@
 # YKYBlog
 
+
 #### 项目链接：[www.youkaiyang.cn](http://39.99.245.234/)
 
 #### 关于本地开发
@@ -8,6 +9,7 @@
 **当你克隆项目到本地后可使用手机号：18773672707，密码：111111进行登录，也可自行注册并将其修改为最高管理权限。**
 
 #### 项目介绍  
+- 本项目采用[MyBlog](www.zhyocean.cn)的前端，特此感谢！
 - 关于项目，对于学习Springboot是个挺不错的练手项目
 - 开发前的一些准备工作，以及思考项目整体结构与思路
 - 记录开发过程中遇到的一些难题以及bug
@@ -121,11 +123,11 @@
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170121_1528e923_6578938.png "boke(03).png")
 
 #### 登录流程
-
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170449_5f436ee7_6578938.png "loogin.png")
 
 
 #### 用户个人资料修改流程
-
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170534_fddc2ea8_6578938.png "gerenxiugai.png")
 
 
 ## 打包、部署和运行
@@ -189,6 +191,7 @@
 - 实现service层中的接口，并注入mapper层中的sql接口
 - 采用Mybatis的JavaConfig方式编写Sql语句。由于并没有使用Mybatis的逆向功能，需要自己手写所有sql语句
 - 关于事务的实现，在启动类中开启事务，并在service层需要实现事务的业务接口上使用`@Transactional`注解
+- 访问量的存储使用定时任务
 
 ###### 页面与展示
 - 作为一名后端开发，对于前端编辑的能力有所欠缺，这里我使用了[MyBlog](www.zhyocean.cn)，极大的减少了页面的开发难度，特此感谢
