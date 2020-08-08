@@ -37,36 +37,25 @@
 #### 功能需求
 ###### 主页
 - 博客汇总，以列表形式展示文章，并附上文章作者、发布日期、分类情况以及文章简要
-
 - 能够以分类形式查看文章
-
 - 能够以时间列表方式归档文章
-
 - 可实现通过标签查找所有相关文章
-
 - 个人介绍、联系方式
-
 - 博客网站更新记录
-
 - 友链链接
 
 ###### 后台管理
 - 网站仪表盘，记录网站访客量情况
-
 - 文章管理
 1.分页展示文章信息
 2.可对文章进行再编辑以及删除文章
-
 - 发布文章
 1.使用markdown编辑器，支持插入代码，插入图片等功能
 2.文章可选择分类和标签，以及转载文章支持链接原作者文章
-
 - 分类管理，支持增加、删除、修改分类
-
 - 友情链接
 1.支持增加友情链接
 2.支持删除友情链接
-
 - 反馈信息管理，可查看用户反馈信息
 
 #### 安装部署需求
@@ -112,7 +101,6 @@
 
 #### 结构设计
 
-![](https://images.gitee.com/uploads/images/2020/0808/164548_6ec796da_6578938.png)
 对于熟悉Spring开发的朋友来说，相信对此结构也不会陌生。平时的开发过程中，结构设计是重要的环节，特别是协作开发的时候，明细的分包，模块化，可减少代码提交时的冲突。并且明确的结构有助于我们快速的寻找所对应的类。
 
 ## 业务设计
@@ -171,18 +159,6 @@
 | lastArticleId  | bigint  |  20 |  false | false  |  上一篇文章id
 | nextArticleId  | bigint  |  20 |  false | false  |  下一篇文章id
 
-###### 评论记录表：comment_record
-| 名称  | 类型  |  长度 |  主键 | 非空  | 描述 
-| ------------ | ------------ | ------------ | ------------ | ------------ | ------------
-| id  | bigint  |  20 |  true |  true | 主键，自增 
-| pId  | bigint  | 20  | false  | true  | 父id 
-| articleId  | bigint  | 20  |  false | true  |  文章id
-| originalAuthor  |  varchar |  255 |  false | true  | 文章原作者 
-| answererId  | int  | 11  | false  |  true | 评论者id 
-| respondentId  | int  | 11  |  false | true  | 被评论者id 
-| commentDate  |  varchar | 100  |  false | true  | 评论日期 
-| likes  | int  | 11  | false  | true  | 评论点赞数 
-| commentContent  |  text | 0  | false  | true  |  评论内容
 
 ## 开发流程
 ###### 数据库CRUD
