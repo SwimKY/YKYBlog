@@ -108,16 +108,16 @@
 ## 业务设计
 #### 发布文章流程
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170059_7935c7fe_6578938.png "boke(01).png")
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170112_e5caef25_6578938.png "boke(02).png")
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170121_1528e923_6578938.png "boke(03).png")
+![](https://images.gitee.com/uploads/images/2020/0808/170059_7935c7fe_6578938.png "boke(01).png")
+![](https://images.gitee.com/uploads/images/2020/0808/170112_e5caef25_6578938.png "boke(02).png")
+![](https://images.gitee.com/uploads/images/2020/0808/170121_1528e923_6578938.png "boke(03).png")
 
 #### 登录流程
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170449_5f436ee7_6578938.png "loogin.png")
+![](https://images.gitee.com/uploads/images/2020/0808/170449_5f436ee7_6578938.png "loogin.png")
 
 
 #### 用户个人资料修改流程
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170534_fddc2ea8_6578938.png "gerenxiugai.png")
+![](https://images.gitee.com/uploads/images/2020/0808/170534_fddc2ea8_6578938.png "gerenxiugai.png")
 
 
 ## 打包、部署和运行
