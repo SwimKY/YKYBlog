@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>标签 | 爱敲代码的小游子</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="keywords" content="博客,个人,学习,IT,爱敲代码的小游子,程序猿,springboot,java,后端,标签">
+    <meta name="description" content="爱敲代码的小游子，正宗00后，爱编程。专注于Spring,SpringBoot等后端技术探索">
+
+    <link rel="icon" type="image/x-icon" href="https://ykyblog.oss-cn-shenzhen.aliyuncs.com/userImage/favicon.ico">
+    <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/comment.css">
+    <link rel="stylesheet" href="css/tags.css">
+    <link rel="stylesheet" href="css/plugs_paging.css">
+    <link href="https://lib.baomitu.com/font-awesome/5.8.0/css/fontawesome.min.css" rel="stylesheet">
+
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="https://lib.baomitu.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--引入共有头部-->
+    <div th:replace="header :: header"></div>
+    <!--页面主体-->
+    <div id="main">
+        <div class="am-container">
+            <div class="am-g">
+                <div class="site-inner">
+                    <div class="allTags">
+                        <div style="height: 550px">
+
+                        </div>
+                    </div>
+                    <div class="comment" style="margin: 100px auto 50px">
+                        <div class="comment-top">
+                            <div class="comment-top-input" th:if="${#httpServletRequest.remoteUser}">
+                                <textarea id="comment" placeholder="客官，来说两句吧..."></textarea>
+                            </div>
+                            <div class="comment-top-input" th:unless="${#httpServletRequest.remoteUser}">
+                                <div class="goToLogin">
+                                    &nbsp;&nbsp;&nbsp;<a id="toLogin">登录</a>后才可以发表留言呦...
+                                </div>
+                            </div>
+                            <div class="commentBtn">
+                                <button id="commentBtn" type="button" class="am-btn am-btn-secondary">发表留言</button>
+                            </div>
+                        </div>
+                        <div class="comment-bottom">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--引入共有底部-->
+    <div th:replace="footer :: footer"></div>
+    <!--消息盒子+反馈-->
+    <div th:replace="other :: other"></div>
+</div>
+
+<script src="js/all.js"></script>
+<script src="js/tags.js"></script>
+<script src="js/leaveMessage.js"></script>
+<script src="js/plugs_paging.js"></script>
+</body>
+</html>

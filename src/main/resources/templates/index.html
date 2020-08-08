@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>爱敲代码的小游子</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="keywords" content="博客,个人,学习,IT,爱敲代码的小游子,程序猿,springboot,java,后端">
+    <meta name="description" content="爱敲代码的小游子，正宗00后，爱编程。专注于Spring,SpringBoot等后端技术探索">
+
+    <link rel="icon" type="image/x-icon" href="https://ykyblog.oss-cn-shenzhen.aliyuncs.com/blog_front/bitbug_favicon.ico">
+    <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link href="https://lib.baomitu.com/font-awesome/5.8.0/css/fontawesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/plugs_paging.css">
+
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="js/lastUrl.js"></script>
+    <script src="https://lib.baomitu.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <!--主页头部含有小屏幕时名片，不应使用共有头部-->
+    <div class="header">
+        <div class="am-topbar" style="margin-bottom: 0">
+            <h1 class="am-topbar-brand">
+                <!--todo 头像图片-->
+                <a href="/" class="blogTitleName"><img src="https://ykyblog.oss-cn-shenzhen.aliyuncs.com/blog_front/timg.gif" class="imgStyle">爱敲代码的小游子</a>
+            </h1>
+            <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" style="background-color: #CCCCCC;border-color: white;border-radius: 6px" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+            <div id="personal-card" class="am-dropdown am-show-md-down" data-am-dropdown style="float: right">
+                <!--todo 微信二维码-->
+                <button id="personal-card-btn" class="am-btn am-btn-success am-dropdown-toggle" style="padding: 0"><img src="https://ykyblog.oss-cn-shenzhen.aliyuncs.com/blog_front/weixin.jpg"><span class="am-icon-caret-down"></span></button>
+                <div class="am-dropdown-content">
+                    <div class="personal-card-show" style="text-align: center">
+                        <div class="personal-card-show-img">
+                            <img src="https://ykyblog.oss-cn-shenzhen.aliyuncs.com/blog_front/weixin.jpg">
+                        </div>
+                        <div class="personal-card-show-name">
+                            <h4 style="font-weight: 500">爱敲代码的小游子</h4>
+                        </div>
+                        <div class="personal-card-show-words">
+                            <small style="font-size: 13px;color: #808080ad;">宽和慈善，不忤于物，进退沉浮，自得而已。</small>
+                        </div>
+                        <div class="personal-card-show-connection" style="margin-top: 10px">
+                            <span style="color: #009688">微信：KY15273603706</span><br>
+                            <span style="color: #009688">QQ：2049995219</span><br>
+                        </div>
+                        <div class="personal-card-show-attention_btn">
+                            <button class="myCardBtn am-btn am-btn-secondary am-round attention_btn" data-am-offcanvas="{target: '#doc-oc-demo1'}" style="margin-top: 10px">扫描二维码关注我</button>
+                        </div>
+                        <!--名片左侧栏-->
+                        <div id="doc-oc-demo1" class="am-offcanvas">
+                            <div class="am-offcanvas-bar">
+                                <div class="am-offcanvas-content">
+                                    <br>
+                                        我希望你读很多书，走很远的路。 <br/>
+                                        我希望你爱很多人，也被很多人爱。 <br/>
+                                        我希望你走过人山人海，也遍览山河湖海。</br>
+                                        我希望你看纸质书，送手写的祝福。</br>
+                                        我要你独立坚强温暖明亮，<br>
+                                        我要你在这寡淡的世上，深情的活。</br>
+                                    </p>
+
+                                    <div class="halving-line">
+                                        <i class="am-icon-hand-o-down " ></i>
+                                        <i class="am-icon-hand-o-down " ></i>
+                                        <i class="am-icon-hand-o-down " ></i>
+                                    </div>
+                                    <div class="halving-line-words">
+                                        <p>想交个朋友吗<br>那就快扫下面吧</p>
+                                    </div>
+                                    <hr data-am-widget="divider" style="width: 50%" class="am-divider am-divider-dashed" />
+                                    <div class="zhy-qq-weixin">
+                                        <div class="zhy-qq-box">
+                                            <p>QQ</p>
+                                            <img src=""  class="qq_code am-img-thumbnail am-radius">
+                                        </div>
+                                        <div class="zhy-weixin-box">
+                                            <p>微信</p>
+                                            <img src=""  class="weixin_code am-img-thumbnail am-radius">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="personal-card-show-ico">
+                            <hr style="margin-top: 10px">
+                            <div>
+                                <div class="am-u-sm-3"><a href="https://github.com/SwimKY" target="_blank" class="am-icon-github am-icon-sm" title="GitHub" style="color: #337ab7"></a></div>
+                                <div class="am-u-sm-3"><a href="https://gitee.com/youkaiyang" class="am-icon-gg am-icon-sm" target="_blank" title="码云" style="color: #337ab7"></a></div>
+                                <div class="am-u-sm-3">
+                                    <a href="https://youkaiyang.blog.csdn.net" target="_blank" title="CSDN博客" style="color: #337ab7">
+<!--                                    <img src="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/yilinglogo.png" style="width: 25px">-->
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
+                <ul class="am-nav am-nav-pills am-topbar-nav">
+                    <li><a class="top_bar" href="/" style="cursor: pointer;"><span class="am-icon-home"></span>&nbsp;首页</a></li>
+                    <li><a class="top_bar" href="/categories" style="cursor: pointer;"><span class="am-icon-th"></span>&nbsp;分类</a></li>
+                    <li><a class="top_bar" href="/archives" style="cursor: pointer;"><span class="am-icon-archive"></span>&nbsp;归档</a></li>
+                    <li><a class="top_bar" href="/tags" style="cursor: pointer;"><span class="am-icon-tags"></span>&nbsp;标签</a></li>
+                    <li><a class="top_bar" href="/update" style="cursor: pointer;"><span class="am-icon-calendar-plus-o"></span>&nbsp;更新</a></li>
+                    <li><a class="top_bar" href="/friendlylink" style="cursor: pointer;"><span class="am-icon-street-view"></span>&nbsp;友链</a></li>
+                    <li><a class="top_bar" href="/aboutme" style="cursor: pointer;"><span class="am-icon-user"></span>&nbsp;关于我</a> </li>
+                </ul>
+
+                <div class="am-topbar-right reward am-show-sm-down">
+                    <a  href="/reward" style="text-decoration: none">
+<!--                        <img class="am-circle" src="/img/favicon.png">-->
+<!--                        <span class="reward-word">公益募捐</span>-->
+                    </a>
+                </div>
+
+                <div class="am-topbar-right" th:if="${#httpServletRequest.remoteUser}">
+                    <div class="am-dropdown" data-am-dropdown="{boundary: '.am-topbar'}">
+                        <button class="personalSpace am-btn am-btn-secondary am-topbar-btn am-btn-sm am-dropdown-toggle" data-am-dropdown-toggle><span sec:authentication="name"></span> <span class="am-icon-caret-down"></span></button>
+                        <ul class="am-dropdown-content">
+                            <li><a href="/user" sec:authorize="hasRole('ROLE_USER')">个人主页</a></li>
+                            <li><a href="/superadmin" sec:authorize="hasRole('ROLE_SUPERADMIN')">网站后台管理</a></li>
+                            <li><a href="/user" class="news">消息<span class="newsNum am-badge am-badge-danger"></span></a></li>
+                            <li><a class="feedbackClick">反馈</a></li>
+                            <hr style="margin: 10px 0 5px 0;">
+                            <li><a th:href="@{/logout}">退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="am-topbar-right" th:unless="${#httpServletRequest.remoteUser}">
+                    <a href="/register" class="am-btn am-btn-primary am-topbar-btn am-btn-sm" style="color: white">注册</a>
+                </div>
+                <div class="am-topbar-right" th:unless="${#httpServletRequest.remoteUser}">
+                    <a href="/login" class="loginBtn am-btn am-btn-primary am-topbar-btn am-btn-sm" style="color: white">登录</a>
+                </div>
+                <div class="am-topbar-right writing am-hide-md-down">
+                    <a  href="/editor" target="_blank" style="text-decoration: none">
+                        <img class="am-circle" src="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/loading.gif" data-src="https://ykyblog.oss-cn-shenzhen.aliyuncs.com/blog_front/writing.png">
+                        <span class="write-word">写博客</span>
+                    </a>
+                </div>
+                <div class="am-topbar-right reward am-hide-sm-down">
+<!--                    <a  href="/reward" style="text-decoration: none">-->
+<!--                        <img class="am-circle" src="/img/favicon.png">-->
+<!--                        <span class="reward-word">公益募捐</span>-->
+<!--                    </a>-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--页面主体-->
+    <div id="main" style="margin-top: 16px">
+
+        <div class="am-g">
+            <div class="am-u-sm-12 am-u-lg-9">
+                <div class="radioBroadcast">
+                    <i class="am-icon-volume-up" style="margin-left: 10px;color: #fbd602"></i>
+                    <div class="roll">
+                        <ul>
+                            <li>新增未读消息提醒，可在个人主页查看未读消息啦~~~</li>
+                            <li>愿你有前进一寸的勇气，亦有后退一尺的从容。</li>
+                            <li>告诉自己，明天，肯定会更好。</li>
+                            <li>宽和慈善，不忤于物，进退沉浮，自得而已。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="am-g">
+            <div class="am-u-sm-12 am-u-lg-3 am-hide-md-down">
+                <div id="left">
+                    <div class="myCard">
+                        <div class="am-g">
+                            <div class="am-u-sm-5">
+                                <!--todo 首页头像-->
+                                <div class="img-title">
+                                    <img class="img" src="" data-src="https://ykyblog.oss-cn-shenzhen.aliyuncs.com/blog_front/timg.jfif">
+                                </div>
+                            </div>
+                            <div class="am-u-sm-7" style="padding: 0 20px 0 0;">
+                                <div class="img-words">
+                                    <h3 id="name">爱敲代码的小游子</h3>
+                                    <small style="font-size: 13px;color: #808080ad">临渊羡鱼，不如退而结网。踏实做事，好好奋斗，是给自己最好的交代。</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div id="connection" style="font-size: 14px">
+                            <span style="color: #009688">微信：KY15273603706</span><br>
+                            <span style="color: #009688">QQ：2049995219</span><br>
+                            <div id="follow">
+                                <button class="myCardBtn am-btn am-btn-secondary am-round attention_btn" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}">扫描二维码关注我</button>
+                            </div>
+                            <!--左侧栏-->
+                            <div id="doc-oc-demo2" class="am-offcanvas">
+                                <div class="am-offcanvas-bar">
+                                    <div class="am-offcanvas-content">
+                                        <p>
+                                            我不愿让你一个人 <br/>
+                                            承受这世界的残忍 <br/>
+                                            我不愿眼泪陪你到 永恒<br><br>
+
+                                            很抱歉你的过去我没来及参与<br>
+                                            那么<br>
+                                            余生我陪你度过<br>
+                                            可好
+                                        </p>
+
+                                        <div class="halving-line">
+                                            <i class="am-icon-hand-o-down " ></i>
+                                            <i class="am-icon-hand-o-down " ></i>
+                                            <i class="am-icon-hand-o-down " ></i>
+                                        </div>
+                                        <div class="halving-line-words">
+                                            <p>想交个朋友吗<br>那就快扫下面吧</p>
+                                        </div>
+                                        <hr data-am-widget="divider" style="width: 50%" class="am-divider am-divider-dashed" />
+                                        <div class="zhy-qq-weixin">
+                                            <div class="zhy-qq-box">
+                                                <p>QQ</p>
+                                                <img src=""  class="qq_code am-img-thumbnail am-radius">
+                                            </div>
+                                            <div class="zhy-weixin-box">
+                                                <p>微信</p>
+                                                <img src=""  class="weixin_code am-img-thumbnail am-radius">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="icons-row">
+                            <div class="icons">
+                                <div class="icon">
+                                    <a href="https://github.com/SwimKY" target="_blank" class="am-icon-github am-icon-md " title="GitHub" data-am-popover="{content: 'GitHub', trigger: 'hover focus'}"></a>
+                                </div>
+                                <div class="icon">
+                                    <a href="https://gitee.com/youkaiyang" class="am-icon-gg am-icon-md" target="_blank" title="码云" data-am-popover="{content: '码云', trigger: 'hover focus'}"></a>
+                                </div>
+                                <div class="icon">
+                                    <a href="https://youkaiyang.blog.csdn.net" target="_blank" title="CSDN"><img src="https://zhy-myblog.oss-cn-shenzhen.aliyuncs.com/static/img/csdn.jpg" style="width: 30px" data-am-popover="{content: 'CSDN', trigger: 'hover focus'}"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="new-comment">
+                        <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                            <div class="am-list-news-hd am-cf">
+                                <a class="newComments">
+                                    <h2>最新评论</h2>
+                                </a>
+                            </div>
+                            <div class="am-list-news-bd">
+                                <ul class="am-list">
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="new-leaveWord">
+                        <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                            <div class="am-list-news-hd am-cf">
+                                <a class="newLeaveWord">
+                                    <h2>最新留言</h2>
+                                </a>
+                            </div>
+                            <div class="am-list-news-bd">
+                                <ul class="am-list">
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                    <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="showArticle am-u-sm-12 am-u-lg-6">
+                <div class="articles">
+                    <div class="center">
+                        <div class="empty">
+                            <header class="article-header">
+                                <h1 itemprop="name">
+                                    <a class="article-title" href="#" target="_blank">&nbsp;</a>
+                                </h1>
+                                <div class="article-meta row">
+                                    <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+                                </div>
+                            </header>
+                            <div class="article-entry" style="height: 200px">
+                            </div>
+                            <div class="read-all">
+                                <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
+                            </div>
+                            <hr>
+                            <div class="article-tags">
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                                <!--<span class="likes"><i class="am-icon-heart"> 个喜欢</i></span>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div class="empty">
+                            <header class="article-header">
+                                <h1 itemprop="name">
+                                    <a class="article-title" href="#" target="_blank">&nbsp;</a>
+                                </h1>
+                                <div class="article-meta row">
+                                    <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+                                </div>
+                            </header>
+                            <div class="article-entry" style="height: 200px">
+                            </div>
+                            <div class="read-all">
+                                <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
+                            </div>
+                            <hr>
+                            <div class="article-tags">
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div class="empty">
+                            <header class="article-header">
+                                <h1 itemprop="name">
+                                    <a class="article-title" href="#" target="_blank">&nbsp;</a>
+                                </h1>
+                                <div class="article-meta row">
+                                    <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+                                </div>
+                            </header>
+                            <div class="article-entry" style="height: 200px">
+                            </div>
+                            <div class="read-all">
+                                <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
+                            </div>
+                            <hr>
+                            <div class="article-tags">
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div class="empty">
+                            <header class="article-header">
+                                <h1 itemprop="name">
+                                    <a class="article-title" href="#" target="_blank">&nbsp;</a>
+                                </h1>
+                                <div class="article-meta row">
+                                    <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+                                </div>
+                            </header>
+                            <div class="article-entry" style="height: 200px">
+                            </div>
+                            <div class="read-all">
+                                <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
+                            </div>
+                            <hr>
+                            <div class="article-tags">
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div class="empty">
+                            <header class="article-header">
+                                <h1 itemprop="name">
+                                    <a class="article-title" href="#" target="_blank">&nbsp;</a>
+                                </h1>
+                                <div class="article-meta row">
+                                    <span class="articleType am-badge am-badge-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+                                </div>
+                            </header>
+                            <div class="article-entry" style="height: 200px">
+                            </div>
+                            <div class="read-all">
+                                <a href="#" target="_blank">阅读全文 <i class="am-icon-angle-double-right"></i></a>
+                            </div>
+                            <hr>
+                            <div class="article-tags">
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                                <i class="am-icon-tag"><a class="tag" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;</a></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-row" id="page-father">
+                    <div id="pagination">
+                        <ul class="am-pagination  am-pagination-centered">
+                            <li class="am-disabled"><a href="#">&laquo; 上一页</a></li>
+                            <li class="am-active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">下一页 &raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="new-comment am-show-sm-only">
+                    <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                        <div class="am-list-news-hd am-cf">
+                            <a class="">
+                                <h2>最新评论</h2>
+                            </a>
+                        </div>
+                        <div class="am-list-news-bd">
+                            <ul class="am-list">
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="new-leaveWord am-show-sm-only">
+                    <div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+                        <div class="am-list-news-hd am-cf">
+                            <a class="">
+                                <h2>最新留言</h2>
+                            </a>
+                        </div>
+                        <div class="am-list-news-bd">
+                            <ul class="am-list">
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                                <li class="am-g am-list-item-dated" style="height: 62px">
+
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="site-info am-show-sm-only">
+                    <h5 class="site-title">
+                        <i class="am-icon-info site-icon"></i>
+                        <strong style="margin-left: 15px">网站信息</strong>
+                    </h5>
+                    <ul class="site-default" style="height: 200px">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="am-u-sm-12 am-u-lg-3">
+                <div id="right">
+
+                    <h3 class="widget-title">公告</h3>
+                    <div class="widget">
+                        <div class="bg-danger">
+                            <div class="zhy-info">
+                                <i class="am-icon-quote-left" style="float: left"></i><br>
+
+                                <div class="zhy-info-day">
+                                    <p>社会不相信庸俗，</p>
+                                    <p>成功需要汗水和寂寞铸就。</p>
+                                    <p>无数次的质疑或是嘲笑，</p>
+                                    <p>这些都无所谓，</p>
+                                    <p>记住自己是谁，</p>
+                                    <p>自己想要什么就足够了!</p>
+                                    <p style="text-align: right;padding-top: 10px">--- yky</p>
+                                </div>
+                                <i class="am-icon-quote-right" style="float: right"></i>
+                                <div class="zhy-info-opinion">
+                                    <p><strong>Welcome to Yky's blog！！！</strong></p>
+                                    <p style="line-height: 25px">种一棵树最好的时间是十年前，<br>其次是现在。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="myStory" >
+                        <div class="bg-myStory">
+                            <div><a class="bg-myStory-a" href="/mystory">我的故事</a></div>
+                        </div>
+                        <div class="myStory-words">一盆小花，一杯清茶</div>
+                    </div>
+                    <div class="myStory" >
+                    </div>
+                    <div class="myStory" >
+                        <div class="bg-myHeart">
+                            <div><a class="bg-myGirl-a" href="/myheart" target="_blank">藏心阁</a></div>
+                        </div>
+                        <div class="myStory-words">曾经的我，写给未来的自己</div>
+                    </div>
+                    <div class="tag-cloud">
+                        <h3 class="widget-title">标签云</h3>
+                        <div class="widget-tag-cloud">
+                            <span>暂无标签</span>
+                        </div>
+                    </div>
+
+                    <div class="site-info am-hide-sm-only">
+                        <h5 class="site-title">
+                            <i class="am-icon-info site-icon"></i>
+                            <strong style="margin-left: 15px">网站信息</strong>
+                        </h5>
+                        <ul class="site-default" style="height: 200px">
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--引入共有底部-->
+    <div th:replace="footer :: footer"></div>
+    <!--消息盒子+反馈-->
+    <div th:replace="other :: other"></div>
+</div>
+
+<script src="js/index.js"></script>
+<script src="js/all.js"></script>
+<script src="js/plugs_paging.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="no-js fixed-layout" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的故事 | 爱敲代码的小游子</title>
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/x-icon" href="https://ykyblog.oss-cn-shenzhen.aliyuncs.com/userImage/favicon.ico">
+    <meta name="keywords" content="博客,个人,学习,IT,爱敲代码的小游子,程序猿,springboot,java,后端,我的故事">
+    <meta name="description" content="爱敲代码的小游子，正宗00后，爱编程。专注于Spring,SpringBoot等后端技术探索">
+
+    <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/comment.css">
+    <link rel="stylesheet" href="css/tags.css">
+    <link rel="stylesheet" href="css/plugs_paging.css">
+    <link rel="stylesheet" href="css/mystory.css">
+    <link href="https://lib.baomitu.com/font-awesome/5.8.0/css/fontawesome.min.css" rel="stylesheet">
+
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="https://lib.baomitu.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+</head>
+<body>
+
+    <!--引入共有头部-->
+    <div th:replace="header :: header"></div>
+
+    <!--页面主体内容-->
+    <div class="am-cf admin-main" style="padding-top: 0">
+
+        <!--左侧-->
+        <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+            <div class="am-offcanvas-bar admin-offcanvas-bar">
+                <ul class="userList am-list admin-sidebar-list">
+                    <li class="clickLi myStory" ><a><i class="am-icon-coffee "></i> 我的故事</a></li>
+                    <li class="clickLi myPhoto"><a><i class="am-icon-image "></i> 个人相册</a></li>
+                </ul>
+                <div class="am-panel am-panel-default admin-sidebar-panel">
+                    <div class="am-panel-bd">
+                        <p><span class="am-icon-bookmark"></span> 斯人如彩虹，遇见方知有</p>
+                        <p>从明天开始，做一个幸福的人，喂马、劈柴、周游世界。—— 小游子</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--右侧-->
+        <div class="admin-content">
+            <div class="userInfo">
+                <div id="myStory">
+                    <div class="zhy-myStory">
+                        <div class="myStoryPic">
+                            <span class="myStoryPicWord">生活不止眼前的苟且</span>
+                            <span class="storyWords"><i class="am-icon-coffee"></i> 有时间一起聊聊我们的故事吧</span>
+                        </div>
+                        <div class="myStoryContent">
+                            <div class="timeline timeline-wrap">
+                                <div class="timeline-row">
+                                    <span class="node" style="-webkit-box-sizing: content-box;-moz-box-sizing: content-box;box-sizing: content-box;">
+                                        <i class="am-icon-coffee"></i>
+                                    </span>
+                                    <h1 class="title am-animation-slide-top"></h1>
+                                </div>
+                                <div class="timeline-row-major">
+                                    <span class="node am-animation-slide-top am-animation-delay-1">
+                                    </span>
+                                    <div class="content am-comment-main am-animation-slide-top am-animation-delay-1">
+                                        <header class="am-comment-hd" style="background: #fff">
+                                            <div class="contentTitle am-comment-meta">
+                                                <a href="#"></a>
+                                            </div>
+                                        </header>
+                                        <div class="am-comment-bd">
+                                            <i class="am-icon-calendar"><a href="#"></a></i>
+                                            <i class="am-icon-folder"> <a href="#"></a></i>
+                                            <i class="am-comment-bd-tags am-icon-tag"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-row-major">
+                                    <span class="node am-animation-slide-top am-animation-delay-1">
+                                    </span>
+                                    <div class="content am-comment-main am-animation-slide-top am-animation-delay-1">
+                                        <header class="am-comment-hd" style="background: #fff">
+                                            <div class="contentTitle am-comment-meta">
+                                                <a href="#"></a>
+                                            </div>
+                                        </header>
+                                        <div class="am-comment-bd">
+                                            <i class="am-icon-calendar"><a href="#"></a></i>
+                                            <i class="am-icon-folder"> <a href="#"></a></i>
+                                            <i class="am-comment-bd-tags am-icon-tag"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-row-major">
+                                    <span class="node am-animation-slide-top am-animation-delay-1">
+                                    </span>
+                                    <div class="content am-comment-main am-animation-slide-top am-animation-delay-1">
+                                        <header class="am-comment-hd" style="background: #fff">
+                                            <div class="contentTitle am-comment-meta">
+                                                <a href="#"></a>
+                                            </div>
+                                        </header>
+                                        <div class="am-comment-bd">
+                                            <i class="am-icon-calendar"><a href="#"></a></i>
+                                            <i class="am-icon-folder"> <a href="#"></a></i>
+                                            <i class="am-comment-bd-tags am-icon-tag"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-row-major">
+                                    <span class="node am-animation-slide-top am-animation-delay-1">
+                                    </span>
+                                    <div class="content am-comment-main am-animation-slide-top am-animation-delay-1">
+                                        <header class="am-comment-hd" style="background: #fff">
+                                            <div class="contentTitle am-comment-meta">
+                                                <a href="#"></a>
+                                            </div>
+                                        </header>
+                                        <div class="am-comment-bd">
+                                            <i class="am-icon-calendar"><a href="#"></a></i>
+                                            <i class="am-icon-folder"> <a href="#"></a></i>
+                                            <i class="am-comment-bd-tags am-icon-tag"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="myStoryLeaveMessage">
+                            <div class="comment" style="margin: 100px auto 50px">
+                                <div class="comment-top">
+                                    <div class="comment-top-input" th:if="${#httpServletRequest.remoteUser}">
+                                        <textarea id="comment" placeholder="客官，来说两句吧..."></textarea>
+                                    </div>
+                                    <div class="comment-top-input" th:unless="${#httpServletRequest.remoteUser}">
+                                        <div class="goToLogin">
+                                            &nbsp;&nbsp;&nbsp;<a id="toLogin">登录</a>后才可以发表留言呦...
+                                        </div>
+                                    </div>
+                                    <div class="commentBtn">
+                                        <button id="commentBtn" type="button" class="am-btn am-btn-secondary">发表留言</button>
+                                    </div>
+                                </div>
+                                <div class="comment-bottom">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="myPhoto">
+                    <div class="zhy-myPhoto">
+                        <div class="notice">
+                            <span class="alertNotice am-icon-exclamation-circle fa-4x"></span>
+                        </div>
+                        <div class="alertNoticeWord">
+                            相册相册你在哪
+                        </div>
+                        <div class="zhangSire">
+                            —————— 小游子有点懒，还没写这个功能
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--消息盒子+反馈-->
+        <div th:replace="other :: other"></div>
+
+    </div>
+
+    <!--手机适配显示左侧按钮-->
+    <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<script src="js/all.js"></script>
+<script src="js/plugs_paging.js"></script>
+<script src="js/leaveMessage.js"></script>
+<script src="js/mystory.js"></script>
+</body>
+</html>

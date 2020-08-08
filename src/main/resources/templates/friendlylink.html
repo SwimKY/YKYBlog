@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>友链 | 爱敲代码的小游子</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="keywords" content="博客,个人,学习,IT,爱敲代码的小游子,程序猿,springboot,java,后端,友链">
+    <meta name="description" content="爱敲代码的小游子，正宗00后，爱编程。专注于Spring,SpringBoot等后端技术探索">
+
+    <link rel="icon" type="image/x-icon" href="https://ykyblog.oss-cn-shenzhen.aliyuncs.com/userImage/favicon.ico">
+    <link href="https://lib.baomitu.com/amazeui/2.7.2/css/amazeui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/comment.css">
+    <link rel="stylesheet" href="css/friendlylink.css">
+    <link href="https://lib.baomitu.com/font-awesome/5.8.0/css/fontawesome.min.css" rel="stylesheet">
+
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="https://lib.baomitu.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--引入共有头部-->
+    <div th:replace="header :: header"></div>
+    <!--页面主体-->
+    <div id="main">
+        <div class="am-container">
+            <div class="am-g">
+                <div class="am-u-sm-12 am-u-lg-12">
+                    <div class="site-inner">
+                        <div class="zhy-friendlylink-title am-animation-slide-top">
+                            <i class="am-icon-hashtag "></i><span>大佬博客</span>
+                        </div>
+                        <div class="friendLinks zhy-friendlylink-author am-animation-slide-top">
+                            <div class="friendLink">
+                                <i class="am-icon-street-view "></i>
+                                <a href="https://youkaiyang.blog.csdn.net" target="_blank">爱敲代码的小游子CSDN</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="site-middle am-animation-slide-top">
+                        <div class="zhy-friendlylink-title">
+                            <i class="am-icon-hashtag "></i><span>友情链接</span>
+                        </div>
+                        <div id="friendLinks" class="friendLinks zhy-friendlylink-author">
+                            <!--填充友链信息-->
+                        </div>
+                    </div>
+                    <div class="zhy-link-word am-animation-slide-top">
+                        <div class="zhy-friendlylink-title">
+                            <i class="am-icon-hashtag "></i><span>链接公告</span>
+                        </div>
+                        <div class="zhy-friendlink-info">
+                            <p>任何一个行业，如果靠自己不断去探索和挖掘的话，对于自己的成长固然重要，但是有时站在巨人的肩膀上望向前方，你会发现
+                                成功和梦想其实就在前方。</p>
+                            <p>很感谢在我对于未来迷茫时帮助过我的人，也十分感谢那些素未谋面的大佬们在工作之余为我们分享技术前沿的风景。在此衷心的感谢他们，也希望更多的人在他们的帮助下共同进步。</p>
+                            <p><u><i>如果以上链接有涉及个人隐私问题，请及时联系我进行整改。</i></u></p>
+                        </div>
+                    </div>
+                    <div class="zhy-link-word am-animation-slide-top">
+                        <div class="zhy-friendlylink-title">
+                            <i class="am-icon-hashtag "></i><span>友链须知</span>
+                        </div>
+                        <div class="zhy-friendlylink-words">
+                            <blockquote>
+                                <ul>
+                                    <li>请确认贵站可正常访问</li>
+                                    <li>原创博客、技术博客、游记博客优先</li>
+                                    <li>二十篇以上个人原创文章，两个月内有新文章更新</li>
+                                </ul>
+                            </blockquote>
+                            <p style="font-size: 14px">
+                                本人会长期清理无法访问的链接，请保证自己的链接长期有效<br><br>
+                                有需要互换友链的朋友也可在下方给我留言。经核实后将上挂本站点 ^_^
+                            </p>
+                            <p style="color: red;font-size: 15px"><u>本人上挂贵站后，若您的站点未添加本站链接，该页面您的友链会消失的呦！！！</u></p>
+                        </div>
+                    </div>
+                    <div class="zhy-link-word">
+                        <div class="comment" style="margin: 0 auto 50px">
+                            <div class="comment-top">
+                                <div class="comment-top-input" th:if="${#httpServletRequest.remoteUser}">
+                                    <textarea id="comment" placeholder="客官，来说两句吧..."></textarea>
+                                </div>
+                                <div class="comment-top-input" th:unless="${#httpServletRequest.remoteUser}">
+                                    <div class="goToLogin">
+                                        &nbsp;&nbsp;&nbsp;<a id="toLogin">登录</a>后才可以发表留言呦...
+                                    </div>
+                                </div>
+                                <div class="commentBtn">
+                                    <button id="commentBtn" type="button" class="am-btn am-btn-secondary">发表留言</button>
+                                </div>
+                            </div>
+                            <div class="comment-bottom">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--引入共有底部-->
+    <div th:replace="footer :: footer"></div>
+    <!--消息盒子+反馈-->
+    <div th:replace="other :: other"></div>
+</div>
+
+<script src="js/all.js"></script>
+<script src="js/friendlylink.js"></script>
+<script src="js/leaveMessage.js"></script>
+</body>
+</html>
