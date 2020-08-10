@@ -20,13 +20,14 @@
 ## 页面展示
 
 ##### 首页展示
+
 ![](https://images.gitee.com/uploads/images/2020/0808/165611_4bd54a0e_6578938.png "front.png")
 <br>
 ##### 文章编辑
-![](https://images.gitee.com/uploads/images/2020/0808/165449_8ea27445_6578938.png)
+![](https://github.com/SwimKY/YKYBlog/blob/master/image/article.png)
 <br>
 ##### 后台管理
-![](https://images.gitee.com/uploads/images/2020/0808/165638_de15b630_6578938.png "houtai.png")
+![](https://github.com/SwimKY/YKYBlog/blob/master/image/houtai.png)
 <br>
 ##### 用户个人中心
 ![](https://images.gitee.com/uploads/images/2020/0808/165651_273e5b39_6578938.png "geren.png")
@@ -108,16 +109,16 @@
 ## 业务设计
 #### 发布文章流程
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170059_7935c7fe_6578938.png "boke(01).png")
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170112_e5caef25_6578938.png "boke(02).png")
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170121_1528e923_6578938.png "boke(03).png")
+![](https://github.com/SwimKY/YKYBlog/blob/master/image/boke(01).png)
+![](https://github.com/SwimKY/YKYBlog/blob/master/image/boke(02).png)
+![](https://github.com/SwimKY/YKYBlog/blob/master/image/boke(03).png)
 
 #### 登录流程
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170449_5f436ee7_6578938.png "loogin.png")
+![](https://images.gitee.com/uploads/images/2020/0808/170449_5f436ee7_6578938.png "loogin.png")
 
 
 #### 用户个人资料修改流程
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0808/170534_fddc2ea8_6578938.png "gerenxiugai.png")
+![](https://images.gitee.com/uploads/images/2020/0808/170534_fddc2ea8_6578938.png "gerenxiugai.png")
 
 
 ## 打包、部署和运行
