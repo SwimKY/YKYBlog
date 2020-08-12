@@ -1,3 +1,4 @@
+
 package com.yky.ykyblog.config;
 
 import org.apache.catalina.Context;
@@ -18,6 +19,7 @@ public class HttpToHttpsConfig {
 
     /**
      * http重定向到https
+     *
      * @return
      */
     @Bean
