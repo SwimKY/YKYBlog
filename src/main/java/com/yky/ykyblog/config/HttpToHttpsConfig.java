@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @CreateTime: 2020-08-12
  * @Description: 配置http向https的重定向，即使前端依然访问http，也会被定向到https
  */
-@Configuration
+//@Configuration
 public class HttpToHttpsConfig {
 
     /**
