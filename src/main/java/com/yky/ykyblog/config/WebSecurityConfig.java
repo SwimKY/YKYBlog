@@ -1,6 +1,7 @@
 package com.yky.ykyblog.config;
 
 import com.yky.ykyblog.service.security.CustomUserServiceImpl;
+import com.yky.ykyblog.utils.MD5PasswordEncoder;
 import com.yky.ykyblog.utils.MD5Util;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,30 +26,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new CustomUserServiceImpl();
     }
 
+    //认证
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(customUserService())
                 //启动MD5加密
-                .passwordEncoder(new PasswordEncoder() {
-                    //MD5Util md5Util = new MD5Util();
-                    @Override
-                    public String encode(CharSequence rawPassword) {
-                        return MD5Util.encode((String) rawPassword);
-                    }
-
-                    @Override
-                    public boolean matches(CharSequence rawPassword, String encodedPassword) {
-                        return encodedPassword.equals(MD5Util.encode((String)rawPassword));
-                    }
-                });
+                .passwordEncoder(new MD5PasswordEncoder());
     }
 
+    //授权
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/index","/aboutme","/archives","/categories","/friendlylink","/tags","/update")
-                .permitAll()
+                .antMatchers("/","/index","/aboutme","/archives","/categories","/friendlylink","/tags","/update").permitAll()
                 .antMatchers("/editor","/user").hasAnyRole("USER")
                 .antMatchers("/ali","/mylove").hasAnyRole("ADMIN")
                 .antMatchers("/superadmin","/myheart","/today","/yesterday").hasAnyRole("SUPERADMIN")
